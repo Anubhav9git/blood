@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid bg-primary profile ">
+  <h2 class="post-title">{{ userreq.Donor_Name }}</h2><br>
+    <h3 class="post-subtitle">{{ userreq.Blood_group }}</h3>
+    <h3 class="post-subtitle">{{ userreq.Age }}</h3>
+
+    <hr style="height:2px; width:50%; color: black;">
+    <p class="post-subtitle">Posted by
+            <a href="#" style="text-decoration: none; color:white;">{{ object.author }}</a>
+            on {{ object.date_posted }}</p>
+
+
+
+</div>
+
+<div class="contents container my-4">
+
+
+    <hr style="width: 60%; height: 2px;">
+    <p class="post-meta">Posted by
+            <a href="" >{{ object.author }}</a>
+            on {{object.date_posted}}</p>
+</div>
+
+    {% if object.author == user %}
+    <div class="container row " style="justify-content: center; text-align: center;">
+        <a class="btn btn-secondary btn-lg mt-2 mb-1 mx-5 col-lg-3 float-right" style="display: flex;" href="#">Update</a>
+       <a class="btn btn-danger btn-lg mt-2 mb-1 mx-5 col-lg-3 float-right" style="display: flex;"
+          href="{% url 'userreq-delete' object.userreq %}">Delete</a>
+
+
+    </div>
+    {% endif %}
+
+
+</body>
+</html>
